@@ -38,7 +38,7 @@ public class Node {
 		String node =
 				"Index: " + this.index + "\n " +
 				"Coordinates: " + this.coordinate.toString()+ "\n" +
-				"Edges:" + edges;
+				"Edges: \n   " + edges;
 
 		return node;
 	}

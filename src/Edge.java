@@ -2,20 +2,29 @@
 public class Edge {
     public Node node1;
     public Node node2;
-    public long length;
+    public double length;
 
     public Edge(Node node1, Node node2) {
         this.node1 = node1;
         this.node2 = node2;
         this.length = calculateLength();
     }
+    
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
 
-    private long calculateLength() {
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
+    
+    private double calculateLength() {
         double d1x = (double) node1.coordinate.x;
         double d1y = (double) node1.coordinate.y;
         double d2x = (double) node2.coordinate.x;
         double d2y = (double) node2.coordinate.y;
-        return (long) Math.sqrt((Math.pow(d1x - d2x, 2) + Math.pow(d1y - d2y, 2)));
+        return round( Math.sqrt((Math.pow(d1x - d2x, 2) + Math.pow(d1y - d2y, 2))),2);
     }
 
     @Override public String toString(){
