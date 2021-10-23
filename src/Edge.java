@@ -10,6 +10,16 @@ public class Edge {
         this.length = calculateLength();
     }
 
+    public Node getOther(Node node) {
+        Node other = null;
+        if (node.equals(node1)) {
+            other = node2;
+        } else {
+            other = node1;
+        }
+        return other;
+    }
+
     private long calculateLength() {
         double d1x = (double) node1.coordinate.x;
         double d1y = (double) node1.coordinate.y;
