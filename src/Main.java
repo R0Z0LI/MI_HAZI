@@ -41,9 +41,7 @@ public class Main {
         }
         scan.close();
         for(Node node : nodes) {
-        	System.out.println("Index: " + node.getIndex());
-        	System.out.println("Coordinates: " + node.coordinate.toString());
-        	System.out.println("Edges: " + node.edges);
+        	System.out.println(node.toString());
         }
     }
 

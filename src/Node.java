@@ -27,4 +27,19 @@ public class Node {
 	public void addEdge(Edge edge) {
 		edges.add(edge);
 	}
+
+	@Override
+	public String toString() {
+		String edges = "";
+		for (Edge edge : this.edges) {
+			edges += edge.toString() + "\n";
+		}
+
+		String node =
+				"Index: " + this.index + "\n " +
+				"Coordinates: " + this.coordinate.toString()+ "\n" +
+				"Edges:" + edges;
+
+		return node;
+	}
 }
