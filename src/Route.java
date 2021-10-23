@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Routes {
+public class Route {
 		public int start;
 		public int finish;
 		public long distance;
 		public boolean toBeFound;
 		
-		public Routes(int s, int f) {
+		public Route(int s, int f) {
 			start = s;
 			finish = f;
 			distance = 0;
