@@ -1,10 +1,14 @@
+import java.util.List;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 public class Node {
 	public int index;
 	public Coordinate coordinate;
 	public Set<Edge> edges;
+	public Double distance = Double.MAX_VALUE;
+	public List<Node> shortestPath = new LinkedList<>();
 
 	public Node() {
 
@@ -20,12 +24,16 @@ public class Node {
 		return index;
 	}
 
-	public void setIndex(int index) {
-		this.index = index;
-	}
-
 	public void addEdge(Edge edge) {
 		edges.add(edge);
+	}
+
+	public Set<Node> getAdjacentNodes() {
+		Set<Node> adjacentNodes = new HashSet<>();
+		for (Edge edge: edges ) {
+			adjacentNodes.add(edge.getOther(this));
+		}
+		return adjacentNodes;
 	}
 
 	@Override
