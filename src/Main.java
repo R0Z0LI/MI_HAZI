@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Scanner;
 
 
@@ -14,12 +13,9 @@ public class Main {
         int numberOfEdges = scan.nextInt();
 
         for (int i = 0; i < numberOfRoutes; i++) {
-            Route route = new Route();
             int r = scan.nextInt();
             int f = scan.nextInt();
-
-            route.index1 = r;
-            route.index2 = f;
+            Route route = new Route(r, f);
 
             routes.add(route);
         }
@@ -40,9 +36,15 @@ public class Main {
 
             Edge edge = new Edge(node1, node2);
             node1.addEdge(edge);
-
+            node2.addEdge(edge);
+            
         }
         scan.close();
+        for(Node node : nodes) {
+        	System.out.println("Index: " + node.getIndex());
+        	System.out.println("Coordinates: " + node.coordinate.toString());
+        	System.out.println("Edges: " + node.edges);
+        }
     }
 
     private static Node getNodeByIndex(int index) {
