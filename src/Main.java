@@ -16,7 +16,6 @@ public class Main {
         createNodes(numberOfNodes);
         createEdges(numberOfEdges);
         scanner.close();
-
         for(Route route : routes) {
             Node node1 = graph.getNode(route.index1);
             Node node2 = graph.getNode(route.index2);
