@@ -5,7 +5,7 @@ import java.util.Set;
 public class Dijkstra {
 
     public static double calculateShortestPath(Node startNode, Node endNode) {
-        startNode.distance = Double.NaN;
+        startNode.distance = 0.d;
 
         Set<Node> settledNodes = new HashSet<>();
         Set<Node> unsettledNodes = new HashSet<>();
@@ -14,6 +14,11 @@ public class Dijkstra {
 
         while (unsettledNodes.size() != 0) {
             Node currentNode = getLowestDistanceNode(unsettledNodes);
+        	System.out.println(currentNode.toString());
+        	for(Node node : currentNode.getAdjacentNodes()) {
+        		System.out.println(node.distance);
+        	}
+        	
             unsettledNodes.remove(currentNode);
             for (Node adjacentNode : currentNode.getAdjacentNodes()) {
                 double weight = adjacentNode.distance;
@@ -30,6 +35,7 @@ public class Dijkstra {
     }
 
     private static Node getLowestDistanceNode(Set<Node> unsettledNodes) {
+    	System.out.println(unsettledNodes.size());
         Node lowestDistanceNode = null;
         double lowestDistance = Double.MAX_VALUE;
         for (Node node: unsettledNodes) {
