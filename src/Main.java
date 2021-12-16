@@ -6,7 +6,6 @@ public class Main {
     static Graph graph = new Graph();
     static ArrayList<Route> routes = new ArrayList<Route>();
     static Scanner scanner = new Scanner(System.in);
-    static Dijkstra dijkstra = new Dijkstra();
 
     public static void main(String[] args) {
         int numberOfRoutes = scanner.nextInt();
@@ -21,7 +20,7 @@ public class Main {
         for(Route route : routes) {
             Node node1 = graph.getNode(route.index1);
             Node node2 = graph.getNode(route.index2);
-            dijkstra.calculateShortestPath(node1, node2);
+            Dijkstra.calculateShortestPath(node1, node2);
             graph.reset();
         }
 

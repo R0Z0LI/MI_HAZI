@@ -42,10 +42,10 @@ public class Dijkstra {
         return lowestDistanceNode;
     }
 
-    private static void calculateMinimumDistance(Node evaluationNode, double weight, Node sourceNode) {
+    private static void calculateMinimumDistance(Node evaluationNode, double edgeWeight, Node sourceNode) {
         Double sourceDistance = sourceNode.distance;
-        if (sourceDistance + weight < evaluationNode.distance) {
-            evaluationNode.distance = sourceDistance + weight;
+        if (sourceDistance + edgeWeight < evaluationNode.distance) {
+            evaluationNode.distance = sourceDistance + edgeWeight;
             LinkedList<Node> shortestPath = new LinkedList<>(sourceNode.shortestPath);
             shortestPath.add(sourceNode);
             evaluationNode.shortestPath = shortestPath;
